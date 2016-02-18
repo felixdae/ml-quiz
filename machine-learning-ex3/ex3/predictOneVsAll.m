@@ -17,6 +17,9 @@ p = zeros(size(X, 1), 1);
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
 
+% size(all_theta)
+% size(X)
+% p
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned logistic regression parameters (one-vs-all).
@@ -31,10 +34,24 @@ X = [ones(m, 1) X];
 %       
 
 
+P = sigmoid(X*all_theta');
 
+% m
+% num_labels
+for r = 1:m
+    pr = 0;
+    for c = 1:num_labels
+        if P(r,c) > pr
+            pr = P(r,c);
+            p(r,1) = c;
+            % if c == 10
+            %     p(r,1) = 0;
+            % end
+        end
+    end
+end
 
-
-
+% p'
 
 % =========================================================================
 
