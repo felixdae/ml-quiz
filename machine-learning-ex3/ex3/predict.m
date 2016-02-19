@@ -29,15 +29,18 @@ p = zeros(size(X, 1), 1);
 X = [ones(m, 1) X];
 a = sigmoid(X*Theta1');
 b = sigmoid([ones(size(a, 1), 1) a] * Theta2');
-for r = 1:m
-    pr = 0;
-    for c = 1:num_labels
-        if b(r,c) > pr
-            pr = b(r,c);
-            p(r,1) = c;
-        end
-    end
-end
+
+% for r = 1:m
+%     pr = 0;
+%     for c = 1:num_labels
+%         if b(r,c) > pr
+%             pr = b(r,c);
+%             p(r,1) = c;
+%         end
+%     end
+% end
+
+[_, p] = max(b, [], 2);
 
 % Theta2*([v ones())
 

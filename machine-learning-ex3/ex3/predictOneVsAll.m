@@ -38,18 +38,20 @@ P = sigmoid(X*all_theta');
 
 % m
 % num_labels
-for r = 1:m
-    pr = 0;
-    for c = 1:num_labels
-        if P(r,c) > pr
-            pr = P(r,c);
-            p(r,1) = c;
-            % if c == 10
-            %     p(r,1) = 0;
-            % end
-        end
-    end
-end
+% for r = 1:m
+%     pr = 0;
+%     for c = 1:num_labels
+%         if P(r,c) > pr
+%             pr = P(r,c);
+%             p(r,1) = c;
+%             % if c == 10
+%             %     p(r,1) = 0;
+%             % end
+%         end
+%     end
+% end
+
+[_, p] = max(P, [], 2);
 
 % p'
 
