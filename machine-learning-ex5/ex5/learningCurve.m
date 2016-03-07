@@ -57,6 +57,7 @@ n = size(X, 2);
 initial_theta = zeros(n, 1);
 options = optimset('GradObj', 'on', 'MaxIter', 50);
 for i = 1:m
+    % debug_on_warning(1);
     [theta,aa,bb] = ...
         fmincg (@(t)(linearRegCostFunction(X(1:i,:), y(1:i), t, lambda)), ...
             initial_theta, options);
